@@ -1,0 +1,57 @@
+Guided project: Investigating Fandango Movie Ratings
+
+In October 2015, a data journalist named Walt Hickey, analyzed movie ratings data from Fandango and found that their rating rystem was dishonest. He found that there's a significant discrepancy between the number of stars displayed to users and the actual rating, by checking in the HTML page. Most of the times, the actual rating was rounded up to the nearest half-star, whole star (in 8% of the cases) or even completely off - from 4 to 5.
+
+Fandango's officials replied that the bias wasn't intentional, but caused by a bug in their system and promissed to fix this. The rating value isn't displayed in the HTML page anymore.
+
+In this project, we will try to determine if there has been any change in Fandango's rating system since then, by analyzing more recent movie ratings.
+
+In order to do that, we can compare the previous system's characteristics using Hickey's data (https://github.com/fivethirtyeight/data/tree/master/fandango) and a more recent database collected by Dataquest with movies from 2016 and 2017 (https://github.com/mircealex/Movie_ratings_2016_17).
+
+The population of interest for our analysis is made of all movie ratings on Fandango's website, regardless of the releasing year. 
+In order to answer the question if there has been any change in the rating system, we need to sample the population at 2 different moments, before and after Hickey's analysis. 
+
+The 2 datasets we have were sampled at the right time, one before the analysis (we called it fandango_before) and the second one after (fandango_after). 
+
+We need to avoid sampling error and that our samples are representative, not random.
+
+From Hickey's [article](https://github.com/fivethirtyeight/data/tree/master/fandango) we know that he used some criterion in selecting the movies:
+- The movie must have had at least 30 fan ratings on Fandango's website at the time of sampling (Aug. 24, 2015)
+- The movie must have had tickets on sale in 2015
+
+The sample selected by [DataQuest](https://github.com/mircealex/Movie_ratings_2016_17) is also based on some criterion:
+- The movie must have been released in 2016 or later
+- The movie must have had a considerable number of votes and reviews (unclear how many from the README.md or from the data)
+
+Unfortunately, both of our sampled datasets are subject to temporal trends. 
+Both authors used purposive sampling/sujective sampling that served their goals, but is not useful for our research.
+
+Changing the Goal of our Analysis
+
+As concluded, the samples we got, are very unlikely to be representative to the population we're trying to describe. Instead of collecting new data, we will try to change a bit the goal of our analysis. 
+
+From trying to determine whether there has been any change in Fandango's rating system after Hickey's analysis, to determining whether there's any difference between Fandango's ratings for popular movies in 2015 and Fandango's ratings for popular movies in 2016. 
+
+With this new goal, we now have two populations that we want to compare:
+    - Fandango's ratings for popular movies released in 2015
+    - Fandango's ratings for popular movies released in 2016
+    
+By "popular" we'll consider Hickey's benchmark - the movie should have at least 30 fan ratings or more on Fandango's website.
+We also need to make sure we isolate movies released in 2015 and 2016 in separate data sets and not include movies with other release years.
+
+Conclusions
+
+We compared the rating distribution shapes between 2015 and 2016 and we extracted the following remarks:
+ - both distributions are left skewed
+ - 2016 is a bit more left than 2015
+ - the ratings are tending to be high, but the 2016 ratings are a bit lower than the ones in 2015
+
+We also examined the frequency distribution tables:
+ - the 4.5/5 ratings are significantly in a lower percentage in 2016 vs 2015
+ - in 2016 there are 3.1% ratings under 3 (none in 2015)
+ - the 3.5/4 ratings are in a greater percentage in 2016 than in 2015
+
+We looked at the direction of the difference using summary statistics (mean, median, mode) and generated a plot that shows that the mean is slightly higher in 2015 than in 2016 and the mode higher by 0.5, but the median is the same for both 2015 and 2016.
+
+We can say there is a slight difference in Fandango's popular movies ratings between 2015 and 2016. On average, popular movies were better rated in 2015 than in 2016.
+
